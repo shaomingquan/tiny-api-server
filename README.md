@@ -15,4 +15,6 @@ localhost:3000/api/b
 
 `apis/a` defines `/api/a`
 
+dir name as your router
+
 ...
