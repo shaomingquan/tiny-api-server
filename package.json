@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development ./bin/webapp",
-    "prod": "pm2 start pm2.json -- -p 3301"
+    "prod": "pm2 start pm2.json",
+    "ls": "./node_modules/.bin/pm2 ls"
   },
   "author": "",
   "license": "ISC",

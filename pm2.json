@@ -7,9 +7,12 @@
         "error_file" : "./log/child-err.log",
         "out_file"   : "./log/child-out.log",
         "pid_file"   : "./log/child.pid",
-        "env_production" : {
+        "env" : {
             "NODE_ENV": "production"
         },
-        "args": "-p=3301"
+        "args": "-p=3301",
+        "kill_timeout" : 3000,
+        "listen_timeout": 3000,
+        "wait_ready": true
     }]
 }
