@@ -1,12 +1,12 @@
 # tiny-api-server
 
-`npm install`  =>  `node index.js`
+`npm install`  =>  `npm run dev`
 
 see
 ```
-localhost:3000/
-localhost:3000/api/a
-localhost:3000/api/your_custom_path
+localhost:3333/
+localhost:3333/api/a
+localhost:3333/api/your_custom_path
 ```
 
 > a file is a controller
