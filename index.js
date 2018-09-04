@@ -5,19 +5,37 @@ const Router = require('koa-router')
 const router = new Router()
 
 const serve = require('koa-static')
+const logger = require('koa-logger')
+const bodyParser = require('koa-bodyparser');
 
-router.get('/', serve('./public'))
+module.exports = function (options) {
+  if (options.mode == 'dev') {
+    app.use(logger())
+  }
+  app.use(bodyParser())
 
-const routerDefine = require('./apis')
+  router.get('/', serve('./public'))
 
-const routerUrls = Object.keys(routerDefine)
+  const routerDefine = require('./apis')
+  const routers = Object.keys(routerDefine)
+  for (const defineName of routers) {
+    const {
+      method,
+      controller,
+      path: _path
+    } = routerDefine[defineName]
+    let path = _path
+    if (!path) {
+      path = defineName
+    }
+    if (method && controller) {
+      router[method.toLowerCase()](`/api/${path}`, controller)
+    }
+  }
 
-for (const routerUrl of routerUrls) {
-  router.get(`/api/${routerUrl}`, routerDefine[routerUrl])
+  app
+    .use(router.routes())
+    .use(router.allowedMethods())
+
+  app.listen(options.port)
 }
-
-app
-.use(router.routes())
-.use(router.allowedMethods())
-
-app.listen(3000)

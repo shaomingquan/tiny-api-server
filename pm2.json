@@ -1,0 +1,15 @@
+{
+    "apps" : [{
+        "name"       : "my-webapp",
+        "script"     : "./bin/webapp",
+        "instances"  : "max",
+        "exec_mode"  : "cluster_mode",
+        "error_file" : "./log/child-err.log",
+        "out_file"   : "./log/child-out.log",
+        "pid_file"   : "./log/child.pid",
+        "env_production" : {
+            "NODE_ENV": "production"
+        },
+        "args": "-p=3301"
+    }]
+}
