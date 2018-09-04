@@ -6,8 +6,10 @@ see
 ```
 localhost:3000/
 localhost:3000/api/a
-localhost:3000/api/b
+localhost:3000/api/your_custom_path
 ```
+
+> a file is a controller
 
 1, quick serve
 
