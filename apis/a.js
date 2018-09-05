@@ -3,6 +3,6 @@ module.exports = {
     // path: 'your_another_custom_path',
     method: 'GET',
     controller: async ctx => {
-        ctx.body = "hah"
+        ctx.body = "haha"
     }
 }
